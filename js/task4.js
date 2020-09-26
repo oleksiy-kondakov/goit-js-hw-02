@@ -1,36 +1,27 @@
-const orderPieces = 4;
-
-const credits = 23580;
-const pricePerDroid = 3000;
-const CANCELED_BY_USER = "Отменено пользователем!";
-const ACCESS_DENIED = "Недостаточно средств на счету!";
-
-let totalPrice = pricePerDroid * orderPieces; // Write code on this line
-let balanceCredit = credits - totalPrice; // Write code on this line
-let message;
-
-if (totalPrice > credits) {
-  message = ACCESS_DENIED;
-} else if (orderPieces === null) {
-  message = CANCELED_BY_USER;
-} else {
-  message = `Вы купили ${orderPieces} дроидов, на счету осталось ${balanceCredit} кредитов`;
+function formatString(string, maxLength = 40) {
+  return string.length > maxLength
+    ? string.slice(0, maxLength) + "..."
+    : string;
 }
-console.log(message);
-// Использование if else и арифметических операторов
-// Напиши скрипт имитирующий вывод сообщений о списании средств на покупку товара.
 
-// Переменная credits хранит количество средств - 23580 кредитов.
+console.log(formatString("Curabitur ligula sapien, tincidunt non."));
+// 'Curabitur ligula sapien, tincidunt non.'
 
-// Единица товара(дроида) стоит 3000 кредитов за штуку и это значение хранится в переменной pricePerDroid.
+console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis."));
+// 'Vestibulum facilisis, purus nec pulvinar...'
 
-// Переменная orderPieces принимает значения null(отказ от покупок) и целое положительное число(количество единиц товара).
+console.log(
+  formatString("Vestibulum facilisis, purus nec pulvinar iaculis.", 30)
+);
+// 'Vestibulum facilisis, purus ne...'
 
-// Переменная message будет выводить сообщение.В эту переменную надо будет записать одно из трех сообщений о результате:
+//Форматирование строки в зависимости от длинны строки
 
-// const CANCELED_BY_USER = 'Отменено пользователем!'
-// Вы купили ${ } дроидов, на счету осталось ${ } кредитов
-// const ACCESS_DENIED = 'Недостаточно средств на счету!'
-// Используйте вспомогательную переменную totalPrice, которая принимает рассчитанную общую цену заказа.
-// Используйте вспомогательную переменную balanceCredit, которая принимает разницу между credits и totalPrice.
-// А также используйте if else для выбора значений переменной message.
+//Напиши функцию formatString(string, maxLength = 40)
+//которая принимает строку и форматирует ее если необходимо.
+
+//Если длина строки не превышает maxLength, функция возвращает ее в исходном виде.
+//Если длина больше maxLength,
+//то функция обрезает строку до размера maxLength
+//символов и добавляет в конец строки троеточие ...,
+//после чего возвращает укороченную версию.
